@@ -1,4 +1,4 @@
-function theta = IK_BodyForm(Tsd, theta0, epsilon, B0, M0)
+function theta = IK_BodyForm(Tsd, theta0, epsilon, B0, M0, jointLimit)
 % IK by  Newton Raphson method by body form
 %   Tsd: desired TF w.r.t {s} frame
 %   theta0: initial guess
@@ -37,5 +37,15 @@ while (k <= max_iter) && any(abs(err_b) >= epsilon)
 
     % Update k 
     k = k + 1;
+end
+
+% Constraint solution in range [-pi, pi]
+theta = mod(theta + pi, 2*pi) - pi;
+
+% Check with jointLimit 
+theta_origin = theta;
+theta = min(max(theta, jointLimit(1,:)'), jointLimit(2,:)');
+if ~isequal(theta_origin, theta)
+    warning("solution exceed joint limit")
 end
 

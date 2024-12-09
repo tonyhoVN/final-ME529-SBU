@@ -43,8 +43,8 @@ for i = 1:length(bodies)
         limit = joint.PositionLimits;
         
         % Constraint joint limit in [-pi,pi] 
-        lower = max(limit(1),-2*pi);
-        upper = min(2*pi, limit(2));
+        lower = max(limit(1),-pi);
+        upper = min(pi, limit(2));
 
         % Append
         jointLimit = [jointLimit, [lower; upper]];

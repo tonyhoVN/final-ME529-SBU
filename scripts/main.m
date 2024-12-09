@@ -15,3 +15,6 @@ eeFrame = 'b_frame';
 [S0, B0, M0, jointLimit] = robot_info(robot);
 numJoint = 7;
 
+% Joint velocity and accerelation limit 
+jointVelLimit = deg2rad(150);
+jointAccLimit = deg2rad(700);

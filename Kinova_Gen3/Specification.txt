@@ -1,0 +1,8 @@
+Joint Limits (°):
+J1,...,J7: ±360
+
+Maximum Joint Speed (°/s):
+J1,...,J7: 150
+
+Maximum Joint Acceleration (°/s^2):
+J1,...,J7: 700

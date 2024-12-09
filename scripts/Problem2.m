@@ -1,4 +1,5 @@
 %% 2. Validate FK_SpaceForm 
+addpath("scripts\")
 main;
 
 % Tsb by FK_SpaceForm

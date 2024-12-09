@@ -1,4 +1,5 @@
-%% 6. Trapepal
+%% 6. Trajectory
+addpath("scripts\")
 main;
 
 % Start desire 
@@ -26,7 +27,7 @@ show(robot,theta_start,'Visuals','on','Frames','on','Collisions','on');
 show(robot,theta_end,'Visuals','on','Frames','on','Collisions','on');
 hold off
 
-%% Trajectory
+%% Trapezoidal Trajectory
 joint_traj = trapezoidal(theta_start, theta_end, jointVelLimit, jointAccLimit);
 
 % Visualize trajectory

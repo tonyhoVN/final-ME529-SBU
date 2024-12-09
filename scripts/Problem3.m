@@ -1,4 +1,5 @@
 %% 3. Workspace
+addpath("scripts\")
 main;
 
 % Contraint limit to range [-pi, pi]

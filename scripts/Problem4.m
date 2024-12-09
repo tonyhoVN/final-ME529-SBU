@@ -1,4 +1,5 @@
 %% 4. Jacobian 
+addpath("scripts\")
 main;
 
 % Angle 

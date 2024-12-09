@@ -1,4 +1,5 @@
 %% 5. Invert Kinematic 
+addpath("scripts\")
 main;
 
 % Given desired HTM

@@ -81,8 +81,16 @@ xlabel("time (t)")
 
 
 %---------------- Visualize robot motion
+figure(start_figure_ind+2); clf;
+% Start and end robot config
+show(robot,theta_start,'Visuals','on','Frames','off','Collisions','off');
+hold on
+show(robot,theta_end,'Visuals','on','Frames','off','Collisions','off');
+plot3(x,y,z);
+hold off
+
 if animation
-    figure(start_figure_ind+2); clf;
+    
     for i=1:N 
         theta_d = joint_traj(:,i);
         % Current robot config
@@ -92,8 +100,8 @@ if animation
         show(robot,theta_start,'Visuals','on','Frames','off','Collisions','off');
         show(robot,theta_end,'Visuals','on','Frames','off','Collisions','off');
         plot3(x,y,z);
+        
         drawnow
     end
-    
     hold off
 end

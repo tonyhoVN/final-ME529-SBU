@@ -13,8 +13,8 @@ T_sd_end = FK_SpaceForm(S0, M0, theta_end_d);
 % Solve IK
 theta0 = repmat(0.5,7,1);
 epsilon = [repmat(1e-3, 3, 1); repmat(1e-3, 3, 1)];
-theta_start = IK_SpaceForm(T_sd_start,theta0,epsilon,S0,M0,jointLimit);
-theta_end = IK_SpaceForm(T_sd_end,theta0,epsilon,S0,M0,jointLimit);
+theta_start = theta_start_d;
+theta_end = theta_end_d;
 
 % Visualize 
 figure(1);clf
@@ -29,7 +29,7 @@ hold off
 [joint_traj, joint_dot_traj, joint_ddot_traj, time_trajectory] = trapezoidal(theta_start, theta_end, jointVelLimit, jointAccLimit);
 
 % Visualize trajectory
-visualizeTrajectory(robot, joint_traj, joint_dot_traj, joint_ddot_traj, ...
+visualizeTrajectory(robot, joint_traj', joint_dot_traj', joint_ddot_traj', ...
     time_trajectory, 2, S0, M0, false);
 
 

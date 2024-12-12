@@ -3,7 +3,7 @@ addpath("scripts\")
 main;
 
 % Start desire 
-theta_start_d = [pi/2 pi/6 pi/2 pi/3 pi/5 pi/6 pi/4]';
+theta_start_d = [pi/2 pi/6 pi/3 pi/3 -pi/2 pi/4 pi/4]';
 T_sd_start = FK_SpaceForm(S0, M0, theta_start_d);
 
 % End desire 
@@ -28,16 +28,9 @@ show(robot,theta_end,'Visuals','on','Frames','on','Collisions','on');
 hold off
 
 %% Trapezoidal Trajectory
-joint_traj = trapezoidal(theta_start, theta_end, jointVelLimit, jointAccLimit);
+[joint_traj, joint_dot_traj, joint_ddot_traj, time_trajectory] = trapezoidal(theta_start, theta_end, jointVelLimit, jointAccLimit);
 
 % Visualize trajectory
-figure(2); clf
-for i=1:length(joint_traj) % N: Number of samples
-    theta_d = joint_traj(i,:)';
-    show(robot,theta_d,'PreservePlot',false,'Visuals','on','Frames','on');
-    hold on
-    show(robot,theta_start,'Visuals','off','Frames','on','Collisions','on');
-    show(robot,theta_end,'Visuals','off','Frames','on','Collisions','on');
-    drawnow
-end
+visualizeTrajectory(robot, joint_traj, joint_dot_traj, joint_ddot_traj, ...
+    time_trajectory, 2, S0, M0, true);
 

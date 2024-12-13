@@ -50,5 +50,5 @@ a_max = min(abs(A_max(4:end)));
 
 %%
 visualizeTrajectory(robot, joint_traj, joint_dot_traj, joint_ddot_traj, ...
-    time_traj, 2, S0, M0, true);
+    time_traj, 2, S0, M0, false);
 

@@ -69,12 +69,20 @@ xlabel("time (t)")
 
 subplot(2,2,3);
 plot(time_trajectory',joint_dot_traj);
+hold on 
+yline(2.6180,'r--','LineWidth',2);
+yline(-2.6180,'b--','LineWidth',2);
+hold off
 title('$\dot{\mathbf{\theta}}(t)$', 'Interpreter', 'latex');
 ylabel("$\dot{\theta} (rad/s)$", 'Interpreter', 'latex')
 xlabel("time (t)")
 
 subplot(2,2,4);
 plot(time_trajectory',joint_ddot_traj);
+hold on 
+yline(12.2173,'r--','LineWidth',2);
+yline(-12.2173,'b--','LineWidth',2);
+hold off
 title('$\ddot{\mathbf{\theta}}(t)$', 'Interpreter', 'latex');
 ylabel("$\ddot{\theta} (rad/s^2)$", 'Interpreter', 'latex')
 xlabel("time (t)")

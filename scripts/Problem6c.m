@@ -38,7 +38,7 @@ A_max = J_Geometry(S0,M0,theta_amax)*jointAccLimit*ones(numJoint,1);
 a_max = min(abs(A_max(4:end)));
 
 % s Profile 
-[s, s_dot, s_ddot, time_traj] = thirdOrderProfile(v_max,a_max);
+[s, s_dot, s_ddot, time_traj] = thirdOrderProfile(5,10);
 
 % Straight trajectory in task space
 [T_traj, p_dot_traj, p_ddot_traj] = straightTrajectory(T_sd_start,T_sd_end, s, s_dot, s_ddot);
